@@ -1,0 +1,10 @@
+{
+  "name": "cari-project",
+  "private": true,
+  "scripts": {
+    "frontend:install": "npm --prefix cari/api/static install",
+    "dev": "npm --prefix cari/api/static run dev",
+    "build": "npm --prefix cari/api/static run build",
+    "preview": "npm --prefix cari/api/static run preview"
+  }
+}

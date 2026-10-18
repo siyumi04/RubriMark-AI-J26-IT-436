@@ -1,0 +1,12 @@
+dropped,test_auc,delta_auc
+(none),0.9543,0.0
+c1_model_agreement,0.9548,0.0005
+c1_no_contradiction,0.9549,0.0006
+c1_typicality,0.9554,0.0011
+c3_consistency,0.9551,0.0008
+c3_evidence_validity,0.9541,-0.0002
+c3_rubric_agreement,0.9508,-0.0035
+c4_explanation_support,0.9544,0.0001
+c4_gap_precision,0.9533,-0.001
+x_semantic_grade_agreement,0.9243,-0.03
+x_gap_overlap,0.9576,0.0033

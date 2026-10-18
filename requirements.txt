@@ -1,0 +1,14 @@
+numpy
+pandas
+scikit-learn
+pydantic>=2
+fastapi
+uvicorn
+httpx
+sqlalchemy>=2
+psycopg[binary]      # PostgreSQL driver (production)
+matplotlib
+joblib
+pytest
+pglast               # only to validate db/schema.sql
+# sentence-transformers torch   # only for cari/adapters/hf_models.py (real models)

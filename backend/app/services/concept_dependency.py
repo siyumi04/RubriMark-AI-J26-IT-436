@@ -276,8 +276,21 @@ class ConceptDependencyService:
             "graph_edges": graph_edges
         }
 
+    def _get_ancestor_gaps(self, concept: str, gaps: Set[str], visited_ancestors: Optional[Set[str]] = None) -> Set[str]:
+        """Recursively collects all transitive prerequisite concepts that are present in the student's gaps."""
+        if visited_ancestors is None:
+            visited_ancestors = set()
+        ancestor_gaps = set()
+        for prereq in self.dag.get(concept, {}).get("prerequisites", []):
+            if prereq not in visited_ancestors:
+                visited_ancestors.add(prereq)
+                if prereq in gaps:
+                    ancestor_gaps.add(prereq)
+                ancestor_gaps.update(self._get_ancestor_gaps(prereq, gaps, visited_ancestors))
+        return ancestor_gaps
+
     def _topological_sort_gaps(self, gaps: Set[str]) -> List[Dict[str, Any]]:
-        """Sorts missing concepts so prerequisites appear first in the learning sequence."""
+        """Sorts missing concepts so all prerequisite ancestors appear first in the learning sequence."""
         ordered = []
         visited = set()
 
@@ -285,10 +298,11 @@ class ConceptDependencyService:
             if concept in visited:
                 return
             visited.add(concept)
-            # Visit prerequisites first (guarantees topological prerequisite-first ordering)
-            for p in self.dag.get(concept, {}).get("prerequisites", []):
-                if p in gaps:
-                    visit(p)
+            # Visit all ancestor prerequisites in gaps first (guarantees transitive prerequisite-first ordering)
+            # Sort ancestor gaps to ensure deterministic sequence across sibling branches
+            ancestors = sorted(list(self._get_ancestor_gaps(concept, gaps)))
+            for anc in ancestors:
+                visit(anc)
             ordered.append({
                 "step": len(ordered) + 1,
                 "concept": concept,

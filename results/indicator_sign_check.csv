@@ -1,0 +1,15 @@
+feature,dev_auc,test_auc
+c1_model_agreement,0.603,0.568
+c1_no_contradiction,0.596,0.561
+c1_typicality,0.611,0.522
+c3_consistency,0.688,0.653
+c3_evidence_validity,0.524,0.541
+c3_rubric_agreement,0.869,0.921
+c4_explanation_support,0.532,0.516
+c4_gap_precision,0.468,0.469
+x_semantic_grade_agreement,0.889,0.961
+x_gap_overlap,0.846,0.903
+R1,0.636,0.591
+R3,0.789,0.788
+R4,0.484,0.487
+X,0.881,0.958

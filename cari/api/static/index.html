@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RubriMark | Results dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">R</span><span>RubriMark <small>AI assessment review</small></span></div>
+    <div class="connection"><span class="dot"></span> Live decision engine</div>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div><p class="eyebrow">LECTURER WORKSPACE</p><h1>Results, reviewed with confidence.</h1>
+      <p class="subtitle">Monitor automatic releases and validate the cases that need your expertise.</p></div>
+      <button class="refresh" id="refresh">↻ Refresh data</button>
+    </section>
+    <section class="stats" id="stats">
+      <article class="stat"><span>Total assessments</span><strong id="total">—</strong><small>All submitted answers</small></article>
+      <article class="stat green"><span>Released</span><strong id="released">—</strong><small id="release-rate">Automatic and approved</small></article>
+      <article class="stat amber"><span>Needs validation</span><strong id="pending">—</strong><small>Waiting for lecturer review</small></article>
+      <article class="stat blue"><span>Reviewed</span><strong id="reviewed">—</strong><small>Manual decisions recorded</small></article>
+    </section>
+    <div class="grid">
+      <section class="panel queue-panel" id="validation-queue">
+        <div class="panel-head"><div><p class="eyebrow">ACTION REQUIRED</p><h2>Validation queue</h2></div><span class="count" id="queue-count">0</span></div>
+        <input class="search-input" id="queue-search" type="search" placeholder="Search assessment, question, or answer…">
+        <div id="queue" class="cards"><div class="empty">Loading validation queue…</div></div>
+      </section>
+      <aside class="panel threshold-panel">
+        <p class="eyebrow">HOW RELEASE WORKS</p><h2>Threshold note</h2>
+        <div class="threshold-visual"><span>0</span><div class="track"><i></i><b id="tau-marker"></b></div><span>1</span></div>
+        <p>Cases with a <strong>CARI score at or above tau</strong> are released automatically. Cases below tau are held for lecturer validation.</p>
+        <div class="legend"><span><i class="released-key"></i>Automatic release</span><span><i class="review-key"></i>Lecturer validation</span></div>
+        <div class="tip">The threshold is calibrated by the configured policy to protect recall of unreliable answers.</div>
+      </aside>
+    </div>
+    <section class="panel results-panel" id="released-results"><div class="panel-head"><div><p class="eyebrow">PUBLISHED OUTCOMES</p><h2>Released results</h2></div><div class="result-tools"><select id="filter"><option value="">All released</option><option value="released">Automatic / approved</option><option value="reviewed">Overridden</option></select></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Assessment</th><th>Question</th><th>Final score</th><th>CARI</th><th>Release route</th><th>Lecturer note</th><th>Student email</th><th>Actions</th></tr></thead><tbody id="results"><tr><td colspan="8" class="empty">Loading results…</td></tr></tbody></table></div>
+    </section>
+    <section class="panel final-panel"><div class="panel-head"><div><p class="eyebrow">FINAL RELEASE</p><h2>Student totals & feedback</h2><p class="panel-description">Automatic and lecturer-approved marks appear here immediately. The final total and email action become available after all five questions are released.</p><div class="score-legend"><span><i class="auto-key"></i>Released score</span><span><i class="pending-key"></i>Pending validation</span><span class="sample-label">Sample values are marked for testing</span></div></div><button class="download" id="download">↓ Download marks CSV</button></div>
+      <input class="search-input" id="student-search" type="search" placeholder="Search student ID or email…">
+      <div class="table-wrap"><table><thead><tr><th>Student</th><th>Email</th><th>Q1–Q5</th><th>Total</th><th>Status</th><th>Action</th></tr></thead><tbody id="student-results"><tr><td colspan="6" class="empty">Loading student totals…</td></tr></tbody></table></div>
+    </section>
+  </main>
+  <div id="toast" role="status"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

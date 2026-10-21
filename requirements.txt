@@ -1,0 +1,14 @@
+numpy
+pandas
+scikit-learn
+pydantic>=2
+fastapi
+uvicorn
+httpx
+sqlalchemy>=2
+psycopg[binary]      # PostgreSQL driver (production)
+matplotlib
+joblib
+pytest
+pglast==7.21         # pinned for Python 3.9-compatible wheels in CI
+# sentence-transformers torch   # only for cari/adapters/hf_models.py (real models)

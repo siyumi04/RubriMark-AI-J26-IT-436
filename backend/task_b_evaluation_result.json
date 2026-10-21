@@ -1,0 +1,212 @@
+{
+  "evaluation_status": "COMPLETED_WITH_LIMITATIONS",
+  "independent_test_set_exists": false,
+  "reason": "Experimental results CSV is a subset of questionnaire CSV (likely training data). No genuine held-out test set found in repository.",
+  "model_artifact": {
+    "path": "C:\\Users\\ASUS\\RubriMark-AI-J26-IT-436\\backend\\ml_models\\rubrimark_oop_model.joblib",
+    "size_bytes": 29315,
+    "embedding_model": "all-MiniLM-L6-v2",
+    "threshold": 0.5,
+    "num_classifiers": 15,
+    "label_classes": [
+      "Child implementation executes on child object",
+      "Child provides overriding implementation",
+      "Class as blueprint/template",
+      "Concrete class-object example",
+      "Handles runtime exceptions/errors",
+      "Inheritance of accessible fields",
+      "Inheritance of accessible methods",
+      "Instance reference required for access",
+      "No direct instance-variable access from static method",
+      "None clearly identified",
+      "Object as class instance",
+      "Prevents abrupt termination or supports graceful recovery",
+      "Static belongs to class",
+      "instance variable belongs to object",
+      "requires human review"
+    ],
+    "label_status": "AI-generated provisional labels",
+    "training_script_found": false
+  },
+  "dataset": {
+    "questionnaire_rows": 62,
+    "experimental_rows": 50,
+    "experimental_unique_students": [
+      "S001",
+      "S004",
+      "S010",
+      "S014",
+      "S026",
+      "S035",
+      "S049",
+      "S055",
+      "S057",
+      "S058"
+    ],
+    "overlap_answers_count": 49,
+    "overlap_is_full_subset": true,
+    "rows_with_substantive_labels": 22,
+    "rows_only_metadata_labels": 28,
+    "duplicate_answers": 1
+  },
+  "metrics_15_class": {
+    "note": "Evaluated against provisional_reference_labels; likely in-sample data",
+    "num_samples": 50,
+    "exact_match_accuracy": 0.3,
+    "micro_precision": 0.5407,
+    "micro_recall": 0.8391,
+    "micro_f1": 0.6577,
+    "macro_precision": 0.2883,
+    "macro_recall": 0.5627,
+    "macro_f1": 0.358
+  },
+  "metrics_substantive_13_concept": {
+    "note": "Educational concepts only \u2013 metadata labels excluded",
+    "num_samples": 50,
+    "exact_match_accuracy": 0.36,
+    "micro_precision": 0.3043,
+    "micro_recall": 0.6774,
+    "micro_f1": 0.42,
+    "macro_precision": 0.2114,
+    "macro_recall": 0.5064,
+    "macro_f1": 0.2819
+  },
+  "per_concept_metrics": [
+    {
+      "concept": "Child implementation executes on child object",
+      "type": "edu-concept",
+      "precision": 0.4545,
+      "recall": 1.0,
+      "f1": 0.625,
+      "support": 5
+    },
+    {
+      "concept": "Child provides overriding implementation",
+      "type": "edu-concept",
+      "precision": 0.1429,
+      "recall": 1.0,
+      "f1": 0.25,
+      "support": 1
+    },
+    {
+      "concept": "Class as blueprint/template",
+      "type": "edu-concept",
+      "precision": 0.25,
+      "recall": 0.5,
+      "f1": 0.3333,
+      "support": 2
+    },
+    {
+      "concept": "Concrete class-object example",
+      "type": "edu-concept",
+      "precision": 0.375,
+      "recall": 1.0,
+      "f1": 0.5455,
+      "support": 3
+    },
+    {
+      "concept": "Handles runtime exceptions/errors",
+      "type": "edu-concept",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1
+    },
+    {
+      "concept": "Inheritance of accessible fields",
+      "type": "edu-concept",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    },
+    {
+      "concept": "Inheritance of accessible methods",
+      "type": "edu-concept",
+      "precision": 0.3333,
+      "recall": 1.0,
+      "f1": 0.5,
+      "support": 1
+    },
+    {
+      "concept": "Instance reference required for access",
+      "type": "edu-concept",
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1": 0.75,
+      "support": 8
+    },
+    {
+      "concept": "No direct instance-variable access from static method",
+      "type": "edu-concept",
+      "precision": 0.1429,
+      "recall": 0.3333,
+      "f1": 0.2,
+      "support": 3
+    },
+    {
+      "concept": "None clearly identified",
+      "type": "METADATA",
+      "precision": 0.7879,
+      "recall": 0.9286,
+      "f1": 0.8525,
+      "support": 28
+    },
+    {
+      "concept": "Object as class instance",
+      "type": "edu-concept",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    },
+    {
+      "concept": "Prevents abrupt termination or supports graceful recovery",
+      "type": "edu-concept",
+      "precision": 0.3,
+      "recall": 1.0,
+      "f1": 0.4615,
+      "support": 3
+    },
+    {
+      "concept": "Static belongs to class",
+      "type": "edu-concept",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 2
+    },
+    {
+      "concept": "instance variable belongs to object",
+      "type": "edu-concept",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 2
+    },
+    {
+      "concept": "requires human review",
+      "type": "METADATA",
+      "precision": 0.7879,
+      "recall": 0.9286,
+      "f1": 0.8525,
+      "support": 28
+    }
+  ],
+  "limitations": [
+    "No training script available in repository \u2013 training data unknown.",
+    "Experimental results CSV overlaps with questionnaire CSV (all 50 answers found in questionnaire).",
+    "provisional_reference_labels column contains many only-metadata rows (unusable for substantive concept evaluation).",
+    "Labels marked as 'provisional' \u2013 not independently verified ground-truth.",
+    "Model was trained externally (Google Colab) \u2013 training/validation split details unknown.",
+    "Without a genuine independent test set, published metrics reflect possible in-sample performance."
+  ],
+  "reproducible_evaluation_plan": [
+    "1. Collect \u226530 NEW student answers not in questionnaire CSV, answered post-model-training.",
+    "2. Have a domain expert (OOP instructor) annotate each answer with substantive concept labels (Q1-Q5 expected concepts only).",
+    "3. Exclude 'None clearly identified' and 'requires human review' from evaluation labels.",
+    "4. Run eval_metrics.py (or equivalent) against only the NEW independent labeled set.",
+    "5. Report exact-match accuracy, micro/macro P/R/F1, and per-concept metrics.",
+    "6. Include inter-annotator agreement (Cohen's Kappa) to validate label reliability."
+  ]
+}
